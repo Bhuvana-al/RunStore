@@ -2,7 +2,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Client.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Client.Views.CustomersView">
-  <TextBlock FontSize="30" Foreground="{DynamicResource PrimaryTextColor}" Text="Kund lista" />
+             x:Class="Client.Views.CustomersView"
+             x:DataType="vm:CustomersViewModel">
+
+            <Design.DataContext>
+              <vm:ProductsViewModel></vm:ProductsViewModel>
+            </Design.DataContext>
+
+             <StackPanel>
+                <TextBlock Classes="pageTitle" Text="Våra kunder" />
+                
+                <Border BorderThickness="0 0 0 1" BorderBrush="White" Padding="0 50 0 5">
+                  <Grid ColumnDefinitions="100,100,250,150,150,150,*" ShowGridLines="False">
+                    <Label Grid.Column="0" Content="Förnamn"/>
+                    <Label Grid.Column="1" Content="Efternamn"/>
+                    <Label Grid.Column="2" Content="E-Post"/>
+                    <Label Grid.Column="3" Content="Telephone"/>
+                    <Label Grid.Column="4" Content="Adress"/>
+                    <Label Grid.Column="5" Content="Postnummer"/>
+                    <Label Grid.Column="6" Content="City"/>
+                  </Grid>
+                </Border> 
+
+                <ItemsControl ItemsSource="{Binding Customers}">
+                  <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                      <Grid ColumnDefinitions="100,100,250,150,150,150,*" ShowGridLines="False">
+                          <Label Grid.Column="0" Content="{Binding FirstName}"/>
+                          <Label Grid.Column="1" Content="{Binding LastName}"/>
+                          <Label Grid.Column="2" Content="{Binding Email}"/>
+                          <Label Grid.Column="3" Content="{Binding Phone}"/>
+                          <Label Grid.Column="4" Content="{Binding AddressLine}"/>
+                          <Label Grid.Column="5" Content="{Binding PostalCode}"/>
+                          <Label Grid.Column="6" Content="{Binding City}"/>
+                        </Grid>
+                    </DataTemplate>
+                  </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+            </StackPanel>
 </UserControl>

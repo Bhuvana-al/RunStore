@@ -4,9 +4,9 @@
     <Border Padding="20" Background="{DynamicResource PrimaryBackgroundGradient}">
       
     <!-- Add Controls for Previewer Here -->
-      <Button FontSize="20">
+      <Button>
             <StackPanel Orientation="Horizontal">
-              <Label FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
+              <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
               <Label Content="Test knapp"/>
             </StackPanel>
       </Button>
@@ -15,25 +15,25 @@
   </Design.PreviewWith>
 
   <!-- Add Styles Here -->
-    <Style Selector="Window">
+    <!-- <Style Selector="Window">
       <Setter Property="FontFamily" Value="{DynamicResource MontserratFont}" />
-    </Style>
+    </Style> -->
 
    <Style Selector="Button">
     <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}" />
     <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundColor}" />
     <Setter Property="FontSize" Value="20"/>
     <Setter Property="Padding" Value="15 10"/>
-    <Setter Property="CornerRadius" Value="30"/>
-    <Setter Property="BorderBrush" Value="white"/>
-    <Setter Property="BorderThickness" Value="1"/>
+    <!-- <Setter Property="CornerRadius" Value="30"/> -->
+    <!-- <Setter Property="BorderBrush" Value="white"/> -->
+    <!-- <Setter Property="BorderThickness" Value="1"/> -->
     <Setter Property="HorizontalAlignment" Value="Stretch"/>
   </Style>
 
-   <Style Selector="Button:pointerover /template/ ContentPresenter">
+   <!-- <Style Selector="Button:pointerover /template/ ContentPresenter">
       <Setter Property="Background" Value="Pink"/>
       <Setter Property="Foreground" Value="Green"/>
       <Setter Property="FontWeight" Value="SemiBold"/>
-   </Style>
+   </Style> -->
 
 </Styles>

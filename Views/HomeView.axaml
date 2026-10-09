@@ -5,9 +5,10 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Client.Views.HomeView">
     <StackPanel>
-      <TextBlock FontSize="60" FontFamily="{DynamicResource CreepsterFont}" 
+      <!-- <TextBlock FontSize="60" FontFamily="{DynamicResource CreepsterFont}" 
         Background="{DynamicResource PrimaryBackgroundColor}"  
         Foreground="{DynamicResource PrimaryTextColor}" 
-        Text="Välkommen till RunStore" />
+        Text="Välkommen till RunStore" /> -->
+        <TextBlock Classes="pageTitle" Text="Välkommen till RunStore"/>
     </StackPanel>
 </UserControl>

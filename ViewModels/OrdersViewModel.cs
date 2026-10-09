@@ -2,7 +2,7 @@
 
 namespace Client.ViewModels;
 
-public class OrdersViewModel : ViewModelBase
+public partial class OrdersViewModel : ViewModelBase
 {
 
 }
