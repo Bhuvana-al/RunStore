@@ -15,22 +15,31 @@
                 <TextBlock Classes="pageTitle" Text="Våra produkter"/>
                 
                 <Border BorderThickness="0 0 0 1" BorderBrush="White" Padding="0 50 0 5">
-                  <Grid ColumnDefinitions="100,200,300,*" ShowGridLines="False">
+                  <Grid ColumnDefinitions="100,200,300,100,100,*,50,50" ShowGridLines="False">
                     <Label Grid.Column="0" Content="ArtikelNr"/>
                     <Label Grid.Column="1" Content="Namn"/>
-                    <Label Grid.Column="2" Content="Leverantör"/>
-                    <Label Grid.Column="3" Content="Pris" HorizontalAlignment="Right"/>
+                    <Label Grid.Column="2" Content="Description" />
+                    <Label Grid.Column="3" Content="Image"/>
+                    <Label Grid.Column="4" Content="Leverantör"/>
+                    <Label Grid.Column="5" Content="Pris" />
+                    <Label Grid.Column="6" Content="Edit" />
+                    <Label Grid.Column="7" Content="Delete" />
                   </Grid>
                 </Border> 
 
                 <ItemsControl ItemsSource="{Binding Products}">
                   <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                      <Grid ColumnDefinitions="100,200,300,*" ShowGridLines="False">
+                      <Grid ColumnDefinitions="100,200,300,100,100,*,50,50" ShowGridLines="False">
                           <Label Grid.Column="0" Content="{Binding ItemNumber}"/>
                           <Label Grid.Column="1" Content="{Binding Name}"/>
-                          <Label Grid.Column="2" Content="{Binding SupplierName}"/>
-                          <Label Grid.Column="3" Content="{Binding Price}" HorizontalAlignment="Right" />
+                          <Label Grid.Column="2" Content="{Binding Description}"/>
+                          <!-- <Image Grid.Column="3" Width="48" Height="48" Source="https://res.cloudinary.com/softtech-dev/image/upload/v1786556530/shoe-3_qbzcwy.jpg"/> -->
+                          <Image Grid.Column="3" Width="48" Height="48" Source="avares://Client/Assets/Images/runstore.png" /> 
+                          <Label Grid.Column="4" Content="{Binding SupplierName}"/>
+                          <Label Grid.Column="5" Content="{Binding Price}"/>
+                          <Button Grid.Column="6" Command="{Binding Edit}" Foreground="Green" FontFamily="{DynamicResource IconFont}" Content="&#xebc6;" Padding="10 0 0 10" />
+                          <Button Grid.Column="7" Command="{Binding Delete}" Foreground="red" FontFamily="{DynamicResource IconFont}" Content="&#xe4a6;" Padding="10 0 0 10" />
                       </Grid>
                     </DataTemplate>
                   </ItemsControl.ItemTemplate>

@@ -1,0 +1,62 @@
+[
+  {
+    "customerId": "3b005271-8625-4f6b-8b3b-009c28538605",
+    "firstName": "Ganapathi",
+    "lastName": "Srinivasan",
+    "email": "srinivasan.ganapathi@gmail.com",
+    "phone": "+46 765217404",
+    "addressLine": "Dalagärdet 66",
+    "postalCode": "422 60",
+    "city": "Göteborg"
+  },
+  {
+    "customerId": "fc1869c2-103a-4723-87d3-e421fe68066e",
+    "firstName": "Bhuvaneswari",
+    "lastName": "Adhiseshan",
+    "email": "bhuvaneswari.adiseshan@gmail.com",
+    "phone": "+46 732302478",
+    "addressLine": "Dalagärdet 66",
+    "postalCode": "422 60",
+    "city": "Göteborg"
+  },
+  {
+    "customerId": "74dd91a2-2651-440c-8a7e-12429237dbd9",
+    "firstName": "Shrinidhi",
+    "lastName": "Ganapathi",
+    "email": "shrinidhi.ganapathi@gmail.com",
+    "phone": "+46 762302852",
+    "addressLine": "Hisingen",
+    "postalCode": "433 50",
+    "city": "Göteborg"
+  },
+  {
+    "customerId": "c356fc82-a71d-422c-b857-852083e331a3",
+    "firstName": "Shreya",
+    "lastName": "Ganapathi",
+    "email": "shreya.ganapathi@gmail.com",
+    "phone": "+46 762325833",
+    "addressLine": "Legendgatan 72",
+    "postalCode": "400 30",
+    "city": "Göteborg"
+  },
+  {
+    "customerId": "5d481eaf-f2e9-4a03-aa20-cb7d1c0b1ca1",
+    "firstName": "Lalitha",
+    "lastName": "Adhiseshan",
+    "email": "lalitha.seshan@gmail.com",
+    "phone": "+46 732352540",
+    "addressLine": "Selma 78",
+    "postalCode": "423 60",
+    "city": "Göteborg"
+  },
+  {
+    "customerId": "91f6d7cf-eb25-42c7-944d-22e976798146",
+    "firstName": "Barani",
+    "lastName": "Adhiseshan",
+    "email": "barani.seshan@gmail.com",
+    "phone": "+46 734854350",
+    "addressLine": "Hisingen 4",
+    "postalCode": "422 50",
+    "city": "Göteborg"
+  }
+]

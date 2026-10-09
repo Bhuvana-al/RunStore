@@ -18,7 +18,15 @@ public partial class CustomersViewModel : ViewModelBase
 
     private void LoadCustomers()
     {
-        var customers = CustomerServices.ListAllCustomers();
-        Customers = new ObservableCollection<Customer>(customers);
+        try
+        {
+            var customers = CustomerServices.ListAllCustomers();
+            Customers = new ObservableCollection<Customer>(customers);
+        }
+        catch(Exception ex)
+        {
+            // Byts ut till en tjusig popup senare...
+            Console.WriteLine(ex.Message);
+        }
     } 
 }

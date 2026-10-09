@@ -2,7 +2,8 @@
 
 namespace Client;
 
-public record class Customer
+//public record class Customer
+public class Customer
 {
     public string CustomerId { get; set; } = Guid.NewGuid().ToString();
     public required string FirstName { get; set; }
@@ -12,4 +13,13 @@ public record class Customer
     public string? AddressLine { get; set; }
     public string? PostalCode { get; set; }
     public string? City { get; set; }
+
+    public void Edit()
+    {
+        Console.WriteLine("Ändra kunden");
+    }
+    public void Delete()
+    {
+        Console.WriteLine("Ta bort kunden");
+    }
 }

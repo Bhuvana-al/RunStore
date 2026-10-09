@@ -1,0 +1,281 @@
+[
+  {
+    "id": "234d1eaaa87149429b0bbd6e8dc759c0",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "imageUrl": "https://res.cloudinary.com/softtech-dev/image/upload/v1786556514/shoe-1_qig4ut.jpg",
+    "itemNumber": "1000",
+    "name": "Core 2000",
+    "supplierName": "Company",
+    "price": 1295
+  },
+  {
+    "id": "40f6e853ffb2424bb3eb652ba03576f2",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "imageUrl": "https://res.cloudinary.com/softtech-dev/image/upload/v1786556530/shoe-3_qbzcwy.jpg",
+    "itemNumber": "1002",
+    "name": "Gel 27",
+    "supplierName": "Company",
+    "price": 2295
+  },
+  {
+    "id": "7a62c46d3a4b4ac4a4133ba66e47b6ec",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "imageUrl": "https://res.cloudinary.com/softtech-dev/image/upload/v1786556497/jacket-1_rio6db.jpg",
+    "itemNumber": "1009",
+    "name": "Jacket",
+    "supplierName": "Company",
+    "price": 1495
+  },
+  {
+    "id": "7b460cb714334dafa88a3bfc28388555",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "imageUrl": "https://res.cloudinary.com/softtech-dev/image/upload/v1786556531/t-shirt-2_gg3ags.jpg",
+    "itemNumber": "1005",
+    "name": "Limited Running t-shirt",
+    "supplierName": "Company",
+    "price": 385
+  },
+  {
+    "id": "f31656af57914954a59269e2ff0a8da9",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "imageUrl": "https://res.cloudinary.com/softtech-dev/image/upload/v1786556532/t-shirt-3_uqcb6b.jpg",
+    "itemNumber": "1006",
+    "name": "Road Black t-shirt",
+    "supplierName": "Company",
+    "price": 495
+  },
+  {
+    "id": "b626e20836c34ee0b6c5156ee41130e5",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "imageUrl": "https://res.cloudinary.com/softtech-dev/image/upload/v1786556531/t-shirt-1_p55bwy.jpg",
+    "itemNumber": "1004",
+    "name": "Road White t-shirt",
+    "supplierName": "Company",
+    "price": 495
+  },
+  {
+    "id": "c352647dd9d641408a8afe289c8286c6",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "imageUrl": "https://res.cloudinary.com/softtech-dev/image/upload/v1786556531/shoe-4_lrv51e.jpg",
+    "itemNumber": "1003",
+    "name": "Sonoma 7GTX",
+    "supplierName": "Company",
+    "price": 2295
+  },
+  {
+    "id": "7f5f6b47bf474f6c9c6dea38f7af192e",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "imageUrl": "https://res.cloudinary.com/softtech-dev/image/upload/v1786556530/shoe-2_alelr0.jpg",
+    "itemNumber": "1001",
+    "name": "Trail 25",
+    "supplierName": "Company",
+    "price": 1895
+  },
+  {
+    "id": "ed9528f716d5418a92e349b90bc7c509",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "imageUrl": "https://res.cloudinary.com/softtech-dev/image/upload/v1786556547/vest-1_e4qwig.jpg",
+    "itemNumber": "1007",
+    "name": "Vest pro",
+    "supplierName": "Company",
+    "price": 895
+  },
+  {
+    "id": "b36264a01e9147cd845157c0b9b000e9",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "imageUrl": "https://res.cloudinary.com/softtech-dev/image/upload/v1786556463/vest-2_rcrjyf.jpg",
+    "itemNumber": "1008",
+    "name": "Vest unisex",
+    "supplierName": "Company",
+    "price": 995
+  },
+  {
+    "id": "0e9ec158-5d97-45d7-8ebe-a558be3ada01",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "f36ee327-84fa-4008-bc31-25a0687bfb19",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "54186510-7dbc-4d4d-b50e-21f2d1486324",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "4103abdf-193c-4f10-a183-a7d23c77b227",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "bb22a7a3-412f-4672-97d3-68bc51ef4490",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "96f92cd4-4cfb-46cf-adfe-bc6f1d2ceb7a",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "81f3465f-b5c9-4622-b615-8e00138a76e6",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "3a9af148-b962-4f2a-93b4-24001407d7c4",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "f8526cfa-0f82-4f54-90dc-2452ff8b7166",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "cdb3fa80-7eff-4349-840a-b8bb5df14b44",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "4f9d4231-dad2-49c1-9988-c68390bc56c4",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "df724609-eab0-4975-9e0d-2a61ec42feb8",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "8b4df26d-1b62-4560-b8e6-7ece256939af",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "2811abe0-959e-46c2-ba28-97016c236b9e",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "1da24e62-fe9e-4e29-ab06-6b90079c4bbf",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "e9329842-416a-46e4-88da-1884877fc2bb",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "5872d849-c80d-4a0a-84b7-3111b568fa82",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "448a132d-d348-4327-ba0a-6fc122270b82",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "1ca25ddc-4996-4d66-8646-c6634b01b960",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "036475ad-f6a4-41e0-8ba9-6b0cf261b4fa",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  },
+  {
+    "id": "62eb8337-29a6-4399-9e99-1de84ee94b77",
+    "description": "Test write",
+    "imageUrl": null,
+    "itemNumber": "1010",
+    "name": "Testitem",
+    "supplierName": "Asics",
+    "price": 2295
+  }
+]

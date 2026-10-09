@@ -15,7 +15,8 @@
                 <TextBlock Classes="pageTitle" Text="Våra kunder" />
                 
                 <Border BorderThickness="0 0 0 1" BorderBrush="White" Padding="0 50 0 5">
-                  <Grid ColumnDefinitions="100,100,250,150,150,150,*" ShowGridLines="False">
+                  <Grid ColumnDefinitions="110,100,270,120,120,100,100,50,50" ShowGridLines="False">
+                    <!-- <Label Grid.Column="0" Content="Kund Id"/> -->
                     <Label Grid.Column="0" Content="Förnamn"/>
                     <Label Grid.Column="1" Content="Efternamn"/>
                     <Label Grid.Column="2" Content="E-Post"/>
@@ -23,13 +24,16 @@
                     <Label Grid.Column="4" Content="Adress"/>
                     <Label Grid.Column="5" Content="Postnummer"/>
                     <Label Grid.Column="6" Content="City"/>
+                    <Label Grid.Column="7" Content="Edit" />
+                    <Label Grid.Column="8" Content="Delete" />
                   </Grid>
                 </Border> 
 
                 <ItemsControl ItemsSource="{Binding Customers}">
                   <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                      <Grid ColumnDefinitions="100,100,250,150,150,150,*" ShowGridLines="False">
+                      <Grid ColumnDefinitions="110,100,270,120,120,100,100,50,50" ShowGridLines="False">
+                          <!-- <Label Grid.Column="0" Content="{Binding CustomerId}"/> -->
                           <Label Grid.Column="0" Content="{Binding FirstName}"/>
                           <Label Grid.Column="1" Content="{Binding LastName}"/>
                           <Label Grid.Column="2" Content="{Binding Email}"/>
@@ -37,6 +41,8 @@
                           <Label Grid.Column="4" Content="{Binding AddressLine}"/>
                           <Label Grid.Column="5" Content="{Binding PostalCode}"/>
                           <Label Grid.Column="6" Content="{Binding City}"/>
+                          <Button Grid.Column="7" Command="{Binding Edit}" Foreground="Green" FontFamily="{DynamicResource IconFont}" Content="&#xebc6;" Padding="10 0 0 10" />
+                          <Button Grid.Column="8" Command="{Binding Delete}" Foreground="red" FontFamily="{DynamicResource IconFont}" Content="&#xe4a6;" Padding="10 0 0 10" />
                         </Grid>
                     </DataTemplate>
                   </ItemsControl.ItemTemplate>
