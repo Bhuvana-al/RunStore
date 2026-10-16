@@ -1,4 +1,6 @@
 using System;
+using Avalonia.Controls;
+using Client.Factories;
 using Client.Interfaces;
 using Client.Services;
 using Client.ViewModels;
@@ -13,11 +15,21 @@ public static class ServiceCollectionExtensions
         // collection.AddSingleton<MainViewModel>();
         // collection.AddTransient<IProductService, ProductServices>();
         collection.AddSingleton<MainWindowViewModel>();
+        collection.AddSingleton<PageViewFactory>();
         collection.AddTransient<HomeViewModel>();
         collection.AddTransient<CustomersViewModel>();
         collection.AddTransient<ProductsViewModel>();
         collection.AddTransient<OrdersViewModel>();
         collection.AddTransient<IProductService, ProductServices>(); //dependency injection
         collection.AddTransient<ICustomerService, CustomerServices>();
+
+        collection.AddSingleton<Func<ApplicationNameEnum, PageViewModel>>(c => name => name switch
+        {
+            ApplicationNameEnum.Home => c.GetRequiredService<HomeViewModel>(),
+            ApplicationNameEnum.Customers => c.GetRequiredService<CustomersViewModel>(),
+            ApplicationNameEnum.Orders => c.GetRequiredService<OrdersViewModel>(),
+            ApplicationNameEnum.Products => c.GetRequiredService<ProductsViewModel>(),
+            _ => throw new InvalidOperationException("Det gick åt h-e")
+        });
     }
 }

@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Client.Interfaces;
+using Client.Models;
 using Client.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Client.ViewModels;
 
-public partial class CustomersViewModel : ViewModelBase
+public partial class CustomersViewModel : PageViewModel
 {
     private ICustomerService _customerService;
 
@@ -16,11 +18,22 @@ public partial class CustomersViewModel : ViewModelBase
     
     public CustomersViewModel(ICustomerService customerService)
     {
-        PageTitle = "Kund Lista";
         _customerService = customerService;
+        PageName = Helpers.ApplicationNameEnum.Customers;
+        PageTitle = "Kund Lista";
         LoadCustomers();
     }
 
+    [RelayCommand]
+    public void Edit(string custid)
+    {
+        Console.WriteLine("Ändra kunden, " + custid);
+    }
+    [RelayCommand]
+    public void Delete(string custid)
+    {
+        Console.WriteLine("Ta bort kunden, " + custid);
+    }
     private void LoadCustomers()
     {
         try

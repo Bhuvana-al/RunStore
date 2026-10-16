@@ -41,8 +41,12 @@
                           <Label Grid.Column="4" Content="{Binding AddressLine}"/>
                           <Label Grid.Column="5" Content="{Binding PostalCode}"/>
                           <Label Grid.Column="6" Content="{Binding City}"/>
-                          <Button Grid.Column="7" Command="{Binding Edit}" Foreground="Green" FontFamily="{DynamicResource IconFont}" Content="&#xebc6;" Padding="10 0 0 10" />
-                          <Button Grid.Column="8" Command="{Binding Delete}" Foreground="red" FontFamily="{DynamicResource IconFont}" Content="&#xe4a6;" Padding="10 0 0 10" />
+                          <Button Grid.Column="7" Command="{Binding $parent[UserControl].DataContext.EditCommand}" 
+                            CommandParameter="{Binding CustomerId}"  
+                            Foreground="Green" FontFamily="{DynamicResource IconFont}" Content="&#xebc6;" Padding="10 0 0 10" />
+                          <Button Grid.Column="8" Command="{Binding $parent[UserControl].DataContext.DeleteCommand}" 
+                            CommandParameter="{Binding CustomerId}"
+                            Foreground="red" FontFamily="{DynamicResource IconFont}" Content="&#xe4a6;" Padding="10 0 0 10" />
                         </Grid>
                     </DataTemplate>
                   </ItemsControl.ItemTemplate>

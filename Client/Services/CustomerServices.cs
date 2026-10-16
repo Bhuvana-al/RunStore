@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Client.Interfaces;
+using Client.Models;
 using Client.Repositories;
 
 namespace Client.Services;

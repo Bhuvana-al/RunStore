@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
+using Avalonia.Controls;
 using Client.Interfaces;
 using Client.Models;
 using Client.Services;
@@ -8,7 +10,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Client.ViewModels;
 
-public partial class ProductsViewModel : ViewModelBase
+public partial class ProductsViewModel : PageViewModel
 {
     private IProductService _service;
 
@@ -18,18 +20,19 @@ public partial class ProductsViewModel : ViewModelBase
     {
         PageTitle = "Våra produkter";
         _service = service;
+        PageName = Helpers.ApplicationNameEnum.Products;
         LoadProudcts();
     }
-    // [RelayCommand]
-    // public void Edit()
-    // {
-    //     Console.WriteLine("Ändra uppgifter");
-    // }
-    // [RelayCommand]
-    // public void Delete()
-    // {
-    //     Console.WriteLine("Ta bort produkt");
-    // }
+    [RelayCommand]
+    public void Edit(string id)
+    {
+        Console.WriteLine("Ändra uppgifter, " + id);
+    }
+    [RelayCommand]
+    public void Delete(string id)
+    {
+        Console.WriteLine("Ta bort produkt, " + id);
+    }
     private void LoadProudcts()
     {
         // var products = ProductServices.ListAllProducts();
@@ -40,6 +43,8 @@ public partial class ProductsViewModel : ViewModelBase
             //var service = new ProductServices();  //hard koppling, instead replaced with IProductService
             //Products = new ObservableCollection<Product>(service.ListAllProducts());
             Products = new ObservableCollection<Product>(_service.List());
+            //Products.Contains(x => x.Name =="Nisse"); delegate
+            //Products.First(c => c.ItemNumber == "1001");
         }
         catch(Exception ex)
         {

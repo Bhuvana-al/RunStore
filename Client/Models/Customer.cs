@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Client;
+namespace Client.Models;
 
 //public record class Customer
 public class Customer
@@ -14,12 +14,4 @@ public class Customer
     public string? PostalCode { get; set; }
     public string? City { get; set; }
 
-    public void Edit()
-    {
-        Console.WriteLine("Ändra kunden");
-    }
-    public void Delete()
-    {
-        Console.WriteLine("Ta bort kunden");
-    }
 }

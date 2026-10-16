@@ -38,8 +38,12 @@
                           <Image Grid.Column="3" Width="48" Height="48" Source="avares://Client/Assets/Images/runstore.png" /> 
                           <Label Grid.Column="4" Content="{Binding SupplierName}"/>
                           <Label Grid.Column="5" Content="{Binding Price}"/>
-                          <Button Grid.Column="6" Command="{Binding Edit}" Foreground="Green" FontFamily="{DynamicResource IconFont}" Content="&#xebc6;" Padding="10 0 0 10" />
-                          <Button Grid.Column="7" Command="{Binding Delete}" Foreground="red" FontFamily="{DynamicResource IconFont}" Content="&#xe4a6;" Padding="10 0 0 10" />
+                          <Button Grid.Column="6" Command="{Binding $parent[UserControl].DataContext.EditCommand}"
+                            CommandParameter="{Binding Id}" Content="&#xebc6;" 
+                            Foreground="Green" FontFamily="{DynamicResource IconFont}" Padding="10 0 0 10" />
+                          <Button Grid.Column="7" Command="{Binding $parent[UserControl].DataContext.DeleteCommand}"
+                            CommandParameter="{Binding Id}" Content="&#xe4a6;" 
+                            Foreground="red" FontFamily="{DynamicResource IconFont}" Padding="10 0 0 10" />
                       </Grid>
                     </DataTemplate>
                   </ItemsControl.ItemTemplate>
