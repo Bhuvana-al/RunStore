@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using Avalonia.Controls;
+using Client.Enums;
 using Client.Interfaces;
 using Client.Models;
 using Client.Services;
@@ -10,30 +12,46 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Client.ViewModels;
 
-public partial class ProductsViewModel : PageViewModel
+public partial class ProductsViewModel : ViewModelBase
 {
-    private IProductService _service;
+    private readonly IProductService _productService;
 
     [ObservableProperty]
     public partial ObservableCollection<Product> Products {get; set; } = [];
-    public ProductsViewModel(IProductService service)
+    
+    public ProductsViewModel()
+    {
+        _productService = new ProductServices();
+        PageTitle = "Våra produkter";
+        Init();
+    }
+    public ProductsViewModel(IProductService productService)
     {
         PageTitle = "Våra produkter";
-        _service = service;
-        PageName = Helpers.ApplicationNameEnum.Products;
-        LoadProudcts();
+        _productService = productService;
+        //PageName = PageViewsEnum.Products;
+        
+        //Task.Run(() => LoadProudcts()).Wait();
+        Init();
     }
-    [RelayCommand]
-    public void Edit(string id)
-    {
-        Console.WriteLine("Ändra uppgifter, " + id);
-    }
+
+    // [RelayCommand]
+    // public void Edit(string id)
+    // {
+    //     Console.WriteLine("Ändra uppgifter, " + id);
+    // }
     [RelayCommand]
     public void Delete(string id)
     {
         Console.WriteLine("Ta bort produkt, " + id);
     }
-    private void LoadProudcts()
+    
+    private async void Init()
+    {
+        await LoadProducts();
+    }
+
+    private async Task LoadProducts()
     {
         // var products = ProductServices.ListAllProducts();
         // Products = new ObservableCollection<Product>(products);
@@ -42,7 +60,7 @@ public partial class ProductsViewModel : PageViewModel
         {
             //var service = new ProductServices();  //hard koppling, instead replaced with IProductService
             //Products = new ObservableCollection<Product>(service.ListAllProducts());
-            Products = new ObservableCollection<Product>(_service.List());
+            Products = new ObservableCollection<Product>(await _productService.List());
             //Products.Contains(x => x.Name =="Nisse"); delegate
             //Products.First(c => c.ItemNumber == "1001");
         }

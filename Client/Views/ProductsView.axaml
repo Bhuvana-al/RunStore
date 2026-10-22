@@ -14,6 +14,13 @@
              <StackPanel>
                 <TextBlock Classes="pageTitle" Text="Våra produkter"/>
                 
+                <Button Margin="0 10 0 0" HorizontalAlignment="Left" Classes="form" MaxWidth="300" Background="Gray"
+                    Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToAddProductCommand}">
+                  <StackPanel Orientation="Horizontal">
+                    <Label FontFamily="{DynamicResource IconFont}" Content="&#xe3d4;" Padding="0 5 5 0"/>
+                    <Label Content="Lägg till produkt" />
+                  </StackPanel>
+                </Button>
                 <Border BorderThickness="0 0 0 1" BorderBrush="White" Padding="0 50 0 5">
                   <Grid ColumnDefinitions="100,200,300,100,100,*,50,50" ShowGridLines="False">
                     <Label Grid.Column="0" Content="ArtikelNr"/>
@@ -38,12 +45,12 @@
                           <Image Grid.Column="3" Width="48" Height="48" Source="avares://Client/Assets/Images/runstore.png" /> 
                           <Label Grid.Column="4" Content="{Binding SupplierName}"/>
                           <Label Grid.Column="5" Content="{Binding Price}"/>
-                          <Button Grid.Column="6" Command="{Binding $parent[UserControl].DataContext.EditCommand}"
-                            CommandParameter="{Binding Id}" Content="&#xebc6;" 
+                          <Button Grid.Column="6" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToEditProductCommand}"
+                            CommandParameter="{Binding ItemNumber}" Content="&#xebc6;" 
                             Foreground="Green" FontFamily="{DynamicResource IconFont}" Padding="10 0 0 10" />
                           <Button Grid.Column="7" Command="{Binding $parent[UserControl].DataContext.DeleteCommand}"
-                            CommandParameter="{Binding Id}" Content="&#xe4a6;" 
-                            Foreground="red" FontFamily="{DynamicResource IconFont}" Padding="10 0 0 10" />
+                            CommandParameter="{Binding ItemNumber}" Content="&#xe4a6;" 
+                            Foreground="Red" FontFamily="{DynamicResource IconFont}" Padding="10 0 0 10" />
                       </Grid>
                     </DataTemplate>
                   </ItemsControl.ItemTemplate>

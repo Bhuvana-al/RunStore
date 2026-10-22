@@ -24,7 +24,7 @@
                             </StackPanel>    
                             <Button Command="{Binding GoToHomeCommand}" >
                                 <StackPanel Orientation="Horizontal">
-                                    <Label FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
+                                    <Label Classes="form" FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
                                     <Label Content="Hem" />
                                 </StackPanel>
                             </Button>

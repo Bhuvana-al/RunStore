@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Client.Interfaces;
 using Client.Models;
 using Client.Repositories;
@@ -11,8 +12,11 @@ public class CustomerServices : ICustomerService
     
     //static string path = string.Concat(Environment.CurrentDirectory,"/Data/customers.json");
     //static Storage<Customer> storage = new();
-    public List<Customer> List()
+    public async Task<List<Customer>> List()
     {
+        var httpService = new HttpService<Customer>();
+        var customers = await httpService.Get("customers");
+        return customers;
         
         // StoreCustomers(new Customer{
         //         FirstName = "Barani", 
@@ -23,11 +27,11 @@ public class CustomerServices : ICustomerService
         //         Phone = "+46 734854350",
         //         Email = "barani.seshan@gmail.com"});
 
-        var storage = new Storage<Customer>();
-        var path = string.Concat(Environment.CurrentDirectory, "/Data/customers.json");
-        var customers = storage.Read(path);
+        // var storage = new Storage<Customer>();
+        // var path = string.Concat(Environment.CurrentDirectory, "/Data/customers.json");
+        // var customers = storage.Read(path);
         
-        return customers;
+        // return customers;
 
         /*return [
             new Customer{

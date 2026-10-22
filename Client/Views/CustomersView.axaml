@@ -8,7 +8,7 @@
              x:DataType="vm:CustomersViewModel">
 
             <Design.DataContext>
-              <vm:ProductsViewModel></vm:ProductsViewModel>
+              <vm:CustomersViewModel></vm:CustomersViewModel>
             </Design.DataContext>
 
              <StackPanel>
@@ -17,15 +17,15 @@
                 <Border BorderThickness="0 0 0 1" BorderBrush="White" Padding="0 50 0 5">
                   <Grid ColumnDefinitions="110,100,270,120,120,100,100,50,50" ShowGridLines="False">
                     <!-- <Label Grid.Column="0" Content="Kund Id"/> -->
-                    <Label Grid.Column="0" Content="Förnamn"/>
-                    <Label Grid.Column="1" Content="Efternamn"/>
-                    <Label Grid.Column="2" Content="E-Post"/>
-                    <Label Grid.Column="3" Content="Telephone"/>
-                    <Label Grid.Column="4" Content="Adress"/>
-                    <Label Grid.Column="5" Content="Postnummer"/>
-                    <Label Grid.Column="6" Content="City"/>
-                    <Label Grid.Column="7" Content="Edit" />
-                    <Label Grid.Column="8" Content="Delete" />
+                    <Label Classes="form" Grid.Column="0" Content="Förnamn"/>
+                    <Label Classes="form" Grid.Column="1" Content="Efternamn"/>
+                    <Label Classes="form" Grid.Column="2" Content="E-Post"/>
+                    <Label Classes="form" Grid.Column="3" Content="Telephone"/>
+                    <Label Classes="form" Grid.Column="4" Content="Adress"/>
+                    <Label Classes="form" Grid.Column="5" Content="Postnummer"/>
+                    <Label Classes="form" Grid.Column="6" Content="City"/>
+                    <Label Classes="form" Grid.Column="7" Content="Edit" />
+                    <Label Classes="form" Grid.Column="8" Content="Delete" />
                   </Grid>
                 </Border> 
 

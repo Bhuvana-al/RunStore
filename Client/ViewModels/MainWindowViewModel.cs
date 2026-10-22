@@ -1,4 +1,5 @@
 ﻿using System;
+using Client.Enums;
 using Client.Factories;
 using Client.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -8,14 +9,16 @@ namespace Client.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
-    private readonly PageViewFactory _factory;
+    private readonly PageViewFactory _pageViewFactory;
+    //private readonly AddProductViewModel _addProductVM = new();
+    
     // private readonly HomeViewModel _homeView;
     // private readonly ProductsViewModel _productsView;
     // private readonly OrdersViewModel _ordersView;
     // private readonly CustomersViewModel _customersView;
 
     [ObservableProperty]
-    public partial ViewModelBase CurrentView { get; set; }
+    public partial ViewModelBase CurrentView { get; set; } = new();
 //    public MainWindowViewModel() {}
 
     /* public MainWindowViewModel(
@@ -32,20 +35,25 @@ public partial class MainWindowViewModel : ViewModelBase
         CurrentView = _homeView;
     } */
 
-    public MainWindowViewModel() {}
-    public MainWindowViewModel(PageViewFactory factory)
+    //public MainWindowViewModel() {}
+    public MainWindowViewModel(PageViewFactory pageViewFactory)
     {
-        _factory = factory;
+        _pageViewFactory = pageViewFactory;
         GoToHome();
     }
 
     [RelayCommand] //GoToHomeCommand
-    private void GoToHome() => CurrentView = _factory.LoadPageViewModel(Helpers.ApplicationNameEnum.Home);
+    private void GoToHome() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.Home);
     [RelayCommand] //GoToProductsCommand
     //private void GoToProducts() => CurrentView =_productsView;
-    private void GoToProducts() => CurrentView = _factory.LoadPageViewModel(Helpers.ApplicationNameEnum.Products);
+    private void GoToProducts() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.Products);
     [RelayCommand]
-    private void GoToOrders() => CurrentView = _factory.LoadPageViewModel(Helpers.ApplicationNameEnum.Orders);
+    private void GoToOrders() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.Orders);
     [RelayCommand]
-    private void GoToCustomers() => CurrentView = _factory.LoadPageViewModel(Helpers.ApplicationNameEnum.Customers);
+    private void GoToCustomers() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.Customers);
+    [RelayCommand]
+    private void GoToAddProduct() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.AddProduct);
+    [RelayCommand]
+    private void GoToEditProduct(string ItemNumber) => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.EditProduct, ItemNumber);
+    
 }
