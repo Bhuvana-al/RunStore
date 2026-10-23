@@ -13,7 +13,48 @@
 
              <StackPanel>
               <TextBlock Classes="pageTitle" Text="{Binding PageTitle}"/>
-              <TextBlock Classes="pageTitle" Text="{Binding ProductName}"/>
-             </StackPanel>
+              <Border HorizontalAlignment="Center" VerticalAlignment="Center" 
+                  BorderBrush="White" BorderThickness="0" Padding="0 30">
+                  <!-- Huvud panelen  -->
+                  <StackPanel>
+                   <!-- Panel för inmatning samt bild -->
+                  <StackPanel Orientation="Horizontal" Spacing="20">
+                     <Grid RowSpacing="10" ColumnSpacing="20" 
+                        ColumnDefinitions="200,*"
+                        RowDefinitions="Auto,Auto,Auto,Auto"
+                        ShowGridLines="False">
+                        
+                        <Label Classes="form" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Content="Artikelnr" />
+                        <Label Classes="form" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Content="Productnamn" />
+                        <Label Classes="form" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Content="Leverantör" />
+                        <Label Classes="form" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Content="Pris" />
 
+                        <TextBox Classes="form" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Text="{Binding ItemNumber}" />
+                        <TextBox Classes="form" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Text="{Binding ProductName}" />
+                        <TextBox Classes="form" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Text="{Binding Supplier}" />
+                        <TextBox Classes="form" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Text="{Binding Price}" />
+                     </Grid>
+                     <Border BorderBrush="White" BorderThickness="1" Padding="5">
+                        <Image Source="{Binding Image}" MaxWidth="200" Width="200" MaxHeight="200" />
+                     </Border>
+                   </StackPanel>
+                   
+                   <StackPanel Spacing="20" Margin="0 30 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                     <Button Classes="form" Command="{Binding SaveCommand}">
+                        <StackPanel Orientation="Horizontal">
+                           <Label Padding="5" FontFamily="{DynamicResource IconFont}" Content="&#xe248;" />
+                           <Label Content="Spara"/>
+                        </StackPanel>
+                     </Button>
+                     <Button Classes="form">
+                        <StackPanel Orientation="Horizontal">
+                           <Label Padding="5" FontFamily="{DynamicResource IconFont}" Content="&#xe08a;" />
+                           <Label Content="Avbryt"/>
+                        </StackPanel>
+                     </Button>
+                  </StackPanel>
+                  </StackPanel>
+               </Border>
+             </StackPanel>
+  
 </UserControl>

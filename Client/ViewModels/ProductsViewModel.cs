@@ -9,6 +9,7 @@ using Client.Models;
 using Client.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using HarfBuzzSharp;
 
 namespace Client.ViewModels;
 
@@ -41,9 +42,21 @@ public partial class ProductsViewModel : ViewModelBase
     //     Console.WriteLine("Ändra uppgifter, " + id);
     // }
     [RelayCommand]
-    public void Delete(string id)
+    public async Task Delete(string id)
     {
-        Console.WriteLine("Ta bort produkt, " + id);
+        try
+        {
+            ProductRestDb product = await _productService.Find(id);
+            if (product is not null)
+            {
+                await _productService.Delete(product._id);
+                await LoadProducts();
+            }
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
     
     private async void Init()
@@ -61,6 +74,7 @@ public partial class ProductsViewModel : ViewModelBase
             //var service = new ProductServices();  //hard koppling, instead replaced with IProductService
             //Products = new ObservableCollection<Product>(service.ListAllProducts());
             Products = new ObservableCollection<Product>(await _productService.List());
+
             //Products.Contains(x => x.Name =="Nisse"); delegate
             //Products.First(c => c.ItemNumber == "1001");
         }

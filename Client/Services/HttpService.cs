@@ -21,6 +21,25 @@ public class HttpService<T> : IHttpService<T> where T : class
         WriteIndented = true
     };
 
+    public async Task Delete(string resource, string id)
+    {
+        try
+        {
+            var url = $"https://runstore-cbea.restdb.io/rest/{resource}/{id}";
+            using HttpClient httpClient = new();
+            httpClient.BaseAddress = new Uri(url);
+            httpClient.DefaultRequestHeaders.Add("Cache-Control","none");
+            httpClient.DefaultRequestHeaders.Add("x-apikey", "c9fe87657e4a320046a28c1a055b394d4ab5c");
+            
+            await httpClient.DeleteAsync(url);
+        }
+        catch (Exception ex)
+        {
+            
+            throw new Exception(ex.Message);
+        }
+    }
+
     public async Task<List<T>> Get(string resource)
     {
         // steg 1. Skapa sökvägen till resursen
@@ -95,6 +114,29 @@ public class HttpService<T> : IHttpService<T> where T : class
             await client.PostAsJsonAsync<T>(url, data);
         }
         catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+
+    public async Task Put(string resource, T data, string objectId)
+    {
+        try
+        {
+            var url = $"https://runstore-cbea.restdb.io/rest/{resource}/{objectId}";
+            using HttpClient httpClient = new();
+            httpClient.BaseAddress = new Uri(url);
+            httpClient.DefaultRequestHeaders.Add("Cache-Control","none");
+            httpClient.DefaultRequestHeaders.Add("x-apikey", "c9fe87657e4a320046a28c1a055b394d4ab5c");
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("appilcation/json"));
+
+            await httpClient.PutAsJsonAsync<T>(url, data);
+        }
+        catch(HttpRequestException ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        catch(Exception ex)
         {
             throw new Exception(ex.Message);
         }

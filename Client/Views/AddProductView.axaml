@@ -33,7 +33,7 @@
               <Label Content="Spara" />
             </StackPanel>
           </Button>
-          <Button Classes="form">
+          <Button Classes="form" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToProductsCommand}">
             <StackPanel Orientation="Horizontal">
               <Label Padding="5" FontFamily="{DynamicResource IconFont}" Content="&#xe08a;" />
               <Label Content="Avbryt" />

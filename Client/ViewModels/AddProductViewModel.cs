@@ -55,6 +55,16 @@ public AddProductViewModel(IProductService productService)
             Price = Price
         };
 
-        await _productService.Add(product);
+        //await _productService.Add(product);
+        ClearData();
+    }
+
+    private void ClearData()
+    {
+        ItemNumber = string.Empty;
+        ProductName = string.Empty;
+        //Description = string.Empty;
+        Supplier = string.Empty;
+        Price = 0;
     }
 }
