@@ -6,8 +6,8 @@
              x:Class="Client.Views.HomeView">
     <StackPanel>
       <!-- <TextBlock FontSize="60" FontFamily="{DynamicResource CreepsterFont}" 
-        Background="{DynamicResource PrimaryBackgroundColor}"  
-        Foreground="{DynamicResource PrimaryTextColor}" 
+        Background="{DynamicResource BackgroundColor}"  
+        Foreground="{DynamicResource ForegroundColor}" 
         Text="Välkommen till RunStore" /> -->
         <TextBlock Classes="pageTitle" Text="Välkommen till RunStore"/>
     </StackPanel>

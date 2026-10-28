@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Runtime.InteropServices.Marshalling;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Avalonia;
-using Avalonia.Controls.Platform;
 using Client.Interfaces;
+using Microsoft.Extensions.Configuration;
 
 namespace Client.Services;
 
-public class HttpService<T> : IHttpService<T> where T : class
+public class HttpService<T> : IDisposable, IHttpService<T> where T : class
 {
     private readonly JsonSerializerOptions _options = new()
     {
@@ -21,17 +21,40 @@ public class HttpService<T> : IHttpService<T> where T : class
         WriteIndented = true
     };
 
+    private readonly HttpClient _httpClient;
+    private readonly string _baseUrl = string.Empty;
+
+    public HttpService()
+    {
+        var config = new ConfigurationBuilder()
+            .AddJsonFile("AppSettings.json")
+            .Build();
+
+        var apiKey = config.GetSection("Settings:ApiKey").Value!;
+        //_baseUrl = $"https://runstore-cbea.restdb.io/rest";
+        _baseUrl = config.GetSection("Settings:BaseUrl").Value!;
+
+        _httpClient = new()
+        {
+            BaseAddress = new Uri(_baseUrl)
+        };
+
+
+        _httpClient.BaseAddress = new Uri(_baseUrl);
+        _httpClient.DefaultRequestHeaders.Add("Cache-Control","none");
+        _httpClient.DefaultRequestHeaders.Add("x-apikey", apiKey); 
+    }
     public async Task Delete(string resource, string id)
     {
         try
         {
-            var url = $"https://runstore-cbea.restdb.io/rest/{resource}/{id}";
-            using HttpClient httpClient = new();
-            httpClient.BaseAddress = new Uri(url);
-            httpClient.DefaultRequestHeaders.Add("Cache-Control","none");
-            httpClient.DefaultRequestHeaders.Add("x-apikey", "c9fe87657e4a320046a28c1a055b394d4ab5c");
+            // var url = $"https://runstore-cbea.restdb.io/rest/{resource}/{id}";
+            // using HttpClient httpClient = new();
+            // httpClient.BaseAddress = new Uri(url);
+            // httpClient.DefaultRequestHeaders.Add("Cache-Control","none");
+            // httpClient.DefaultRequestHeaders.Add("x-apikey", "c9fe87657e4a320046a28c1a055b394d4ab5c");
             
-            await httpClient.DeleteAsync(url);
+            await _httpClient.DeleteAsync($"{_baseUrl}/{resource}/{id}");
         }
         catch (Exception ex)
         {
@@ -40,21 +63,27 @@ public class HttpService<T> : IHttpService<T> where T : class
         }
     }
 
+    public void Dispose()
+    {
+        _httpClient.Dispose();
+        GC.SuppressFinalize(this);
+    }
+
     public async Task<List<T>> Get(string resource)
     {
         // steg 1. Skapa sökvägen till resursen
-        var url = $"https://runstore-cbea.restdb.io/rest/{resource}";
+        //var url = $"https://runstore-cbea.restdb.io/rest/{resource}";
         
         // steg 2. Skapa en instans av HttpClient(.Net) klassen.
-        using HttpClient client = new();
+        //using HttpClient client = new();
 
         // steg 3. Konfigurera HttpClient objektet.
-        client.BaseAddress = new Uri(url);
-        client.DefaultRequestHeaders.Add("Cache-Control", "none");
-        client.DefaultRequestHeaders.Add("x-apikey" , "c9fe87657e4a320046a28c1a055b394d4ab5c");
+        // client.BaseAddress = new Uri(url);
+        // client.DefaultRequestHeaders.Add("Cache-Control", "none");
+        // client.DefaultRequestHeaders.Add("x-apikey" , "c9fe87657e4a320046a28c1a055b394d4ab5c");
         
         // steg 4. Skicka paketet
-        var response = await client.GetAsync(url);
+        var response = await _httpClient.GetAsync($"{_baseUrl}/{resource}");
 
         if (!response.IsSuccessStatusCode) return [];
 
@@ -68,14 +97,13 @@ public class HttpService<T> : IHttpService<T> where T : class
     {
         try
         {
-            var url = $"https://runstore-cbea.restdb.io/rest/{resource}?q={predicate}";
+            //var url = $"https://runstore-cbea.restdb.io/rest/{resource}?q={predicate}";
+            // using HttpClient client = new();
+            // client.BaseAddress = new Uri(url);
+            // client.DefaultRequestHeaders.Add("Cache-Control", "none");
+            // client.DefaultRequestHeaders.Add("x-apikey" , "c9fe87657e4a320046a28c1a055b394d4ab5c");
 
-            using HttpClient client = new();
-            client.BaseAddress = new Uri(url);
-            client.DefaultRequestHeaders.Add("Cache-Control", "none");
-            client.DefaultRequestHeaders.Add("x-apikey" , "c9fe87657e4a320046a28c1a055b394d4ab5c");
-
-            var response = await client.GetAsync(url);
+            var response = await _httpClient.GetAsync($"{_baseUrl}/{resource}?q={predicate}");
 
             if (response.IsSuccessStatusCode)
             {
@@ -103,15 +131,15 @@ public class HttpService<T> : IHttpService<T> where T : class
     {
         try
         {
-            var url = $"https://runstore-cbea.restdb.io/rest/{resource}";
+            // var url = $"https://runstore-cbea.restdb.io/rest/{resource}";
             
-            using HttpClient client = new();
-            client.BaseAddress = new Uri(url);
-            client.DefaultRequestHeaders.Add("Cache-Control", "none");
-            client.DefaultRequestHeaders.Add("x-apikey", "c9fe87657e4a320046a28c1a055b394d4ab5c");
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            // using HttpClient client = new();
+            // client.BaseAddress = new Uri(url);
+            // client.DefaultRequestHeaders.Add("Cache-Control", "none");
+            // client.DefaultRequestHeaders.Add("x-apikey", "c9fe87657e4a320046a28c1a055b394d4ab5c");
+            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            await client.PostAsJsonAsync<T>(url, data);
+            await _httpClient.PostAsJsonAsync<T>($"{_baseUrl}/{resource}", data);
         }
         catch (Exception ex)
         {
@@ -123,14 +151,14 @@ public class HttpService<T> : IHttpService<T> where T : class
     {
         try
         {
-            var url = $"https://runstore-cbea.restdb.io/rest/{resource}/{objectId}";
-            using HttpClient httpClient = new();
-            httpClient.BaseAddress = new Uri(url);
-            httpClient.DefaultRequestHeaders.Add("Cache-Control","none");
-            httpClient.DefaultRequestHeaders.Add("x-apikey", "c9fe87657e4a320046a28c1a055b394d4ab5c");
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("appilcation/json"));
+            //var url = $"https://runstore-cbea.restdb.io/rest/{resource}/{objectId}";
+            // using HttpClient httpClient = new();
+            // httpClient.BaseAddress = new Uri(url);
+            // httpClient.DefaultRequestHeaders.Add("Cache-Control","none");
+            // httpClient.DefaultRequestHeaders.Add("x-apikey", "c9fe87657e4a320046a28c1a055b394d4ab5c");
+            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("appilcation/json"));
 
-            await httpClient.PutAsJsonAsync<T>(url, data);
+            await _httpClient.PutAsJsonAsync<T>($"{_baseUrl}/{resource}/{objectId}", data);
         }
         catch(HttpRequestException ex)
         {

@@ -11,4 +11,5 @@ public interface IHttpService<T> where T : class
     Task<T> Get(string resource, string predicate);
     Task Post(string resource, T data);
     Task Put(string resource, T data, string _objectId);
+  
 }

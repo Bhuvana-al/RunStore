@@ -50,12 +50,12 @@ public AddProductViewModel(IProductService productService)
             ItemNumber = ItemNumber,
             Name = ProductName,
             SupplierName = Supplier,
-            ImageUrl = "Bild saknas",
+            ImageUrl = "https://res.cloudinary.com/softtech-dev/image/upload/v1773483409/no-image_ymlpwk.png",
             Description = "Ny produkt",
             Price = Price
         };
 
-        //await _productService.Add(product);
+        await _productService.Add(product);
         ClearData();
     }
 

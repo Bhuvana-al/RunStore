@@ -60,7 +60,8 @@ public partial class EditProductViewModel : ViewModelBase
         var product = await _productService.Find(_itemNumber);
 
         _objectId = product._id;
-        _imageUrl = product.ImageUrl ?? "https://res.cloudinary.com/softtech-dev/image/upload/v1773483409/no-image_ymlpwk.png";
+        _imageUrl = string.IsNullOrEmpty(product.ImageUrl) ? 
+            "https://res.cloudinary.com/softtech-dev/image/upload/v1773483409/no-image_ymlpwk.png" : product.ImageUrl;
 
         ItemNumber = product.ItemNumber;
         ProductName = product.Name;
