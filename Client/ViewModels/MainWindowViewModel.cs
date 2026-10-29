@@ -48,12 +48,14 @@ public partial class MainWindowViewModel : ViewModelBase
     //private void GoToProducts() => CurrentView =_productsView;
     private void GoToProducts() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.Products);
     [RelayCommand]
-    private void GoToOrders() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.Orders);
-    [RelayCommand]
     private void GoToCustomers() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.Customers);
     [RelayCommand]
     private void GoToAddProduct() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.AddProduct);
     [RelayCommand]
     private void GoToEditProduct(string ItemNumber) => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.EditProduct, ItemNumber);
+    [RelayCommand]
+    private void GoToOrders() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.Orders);
+    [RelayCommand]
+    private void GoToAddOrder() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.AddOrder);
     
 }

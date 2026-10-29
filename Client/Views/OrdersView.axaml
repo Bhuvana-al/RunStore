@@ -2,7 +2,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Client.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Client.Views.OrdersView">
-  <TextBlock Classes="pageTitle" Text="Beställningar" />
+             x:Class="Client.Views.OrdersView"
+             x:DataType="vm:OrdersViewModel">
+
+              <Design.DataContext>
+                <vm:OrdersViewModel></vm:OrdersViewModel>
+              </Design.DataContext>
+
+             <StackPanel>
+                <TextBlock Classes="pageTitle" Text="{Binding PageTitle}" />
+                
+                <Border BorderThickness="0 0 0 1" BorderBrush="White" Padding="0 50 0 5">
+                  <Grid ColumnDefinitions="290,150,140,140,220,*" ShowGridLines="False">
+                    <Label Classes="form" Grid.Column="0" Content="OrderId"/>
+                    <Label Classes="form" Grid.Column="1" Content="OrderDatum"/>
+                    <Label Classes="form" Grid.Column="2" Content="Förnamn"/>
+                    <Label Classes="form" Grid.Column="3" Content="Efternamn"/>
+                    <Label Classes="form" Grid.Column="4" Content="E-Post"/>
+                    <Label Classes="form" Grid.Column="5" Content="Ordervärde"/>
+                  </Grid>
+                </Border> 
+
+                <ItemsControl ItemsSource="{Binding Orders}">
+                  <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                      <Grid ColumnDefinitions="290,150,140,140,220,*" ShowGridLines="False">
+                          <Label Grid.Column="0" Content="{Binding OrderId}"/>
+                          <Label Grid.Column="1" Content="{Binding OrderDate}"/>
+                          <Label Grid.Column="2" Content="{Binding Customer.FirstName}"/>
+                          <Label Grid.Column="3" Content="{Binding Customer.LastName}"/>
+                          <Label Grid.Column="4" Content="{Binding Customer.Email}"/>
+                          <Label Grid.Column="5" Content="{Binding OrderValue}"/>
+                        </Grid>
+                    </DataTemplate>
+                  </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+            </StackPanel>
 </UserControl>

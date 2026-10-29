@@ -17,32 +17,39 @@
                     <Grid RowDefinitions="*,Auto">
                         <StackPanel Grid.Row="0" Spacing="10">
                             <StackPanel Orientation="Horizontal" Spacing="20">
-                                <!-- <Image Width="48" Height="48" Source="avares://Client/Assets/Images/runstore.png" /> -->
+                                <Image Width="48" Height="48" Source="avares://Client/Assets/Images/runstore.png" />
                                 <!-- <Image Width="60" Height="60" Source="{SvgImage /Assets/Images/runstore.svg}" ></Image> -->
-                                <Svg Width="60" Height="60" Path="/Assets/Images/runstore.svg"></Svg>
-                                <TextBlock FontFamily="{DynamicResource MontserratFont}" VerticalAlignment="Center" Text="RunStore" FontSize="20" Foreground="{DynamicResource ForegroundColor}" />
+                                <!-- <Svg Width="60" Path="/Assets/Images/runstore.svg"></Svg> -->
+                                <TextBlock FontFamily="{DynamicResource MontserratFont}" 
+                                    VerticalAlignment="Center" Text="RunStore" FontSize="20" Foreground="{DynamicResource ForegroundColor}" />
                             </StackPanel>    
                             <Button Command="{Binding GoToHomeCommand}" >
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Classes="form" FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
                                     <Label Content="Hem" />
                                 </StackPanel>
                             </Button>
                             <Button Command="{Binding GoToProductsCommand}">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label FontFamily="{DynamicResource IconFont}" Content="&#xed60;" />
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xed60;" />
                                     <Label Content="Produkter" />
                                 </StackPanel>
                             </Button>
                             <Button Command="{Binding GoToCustomersCommand}">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label FontFamily="{DynamicResource IconFont}" Content="&#xe4d6;"/>
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xe4d6;"/>
                                     <Label Content="Kunder"/>
                                 </StackPanel>
                             </Button>
+                            <Button Command="{Binding GoToAddOrderCommand}">
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xea86;"/>
+                                    <Label Content="Beställa"/>
+                                </StackPanel>
+                            </Button>
                             <Button Command="{Binding GoToOrdersCommand}">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label FontFamily="{DynamicResource IconFont}" Content="&#xe260;"/>
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xe0ee;"/>
                                     <Label Content="Beställningar"/>
                                 </StackPanel>
                             </Button>
@@ -51,8 +58,8 @@
                             Grid.Row="1"
                             BorderThickness="0"
                             Background="Transparent">
-                            <StackPanel Orientation="Horizontal">
-                                <Label FontFamily="{DynamicResource IconFont}" Content="&#xe270;"/>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xe270;"/>
                                 <Label Content="Inställningar"/>
                             </StackPanel>
                         </Button>

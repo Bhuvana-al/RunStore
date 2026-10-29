@@ -4,6 +4,7 @@ using Client.Helpers;
 using Client.Interfaces;
 using Client.Services;
 using Client.ViewModels;
+using Client.Views;
 
 namespace Client.Factories;
 
@@ -21,8 +22,9 @@ public class PageViewFactory : IPageViewFactory
             PageViewsEnum.Home => new HomeViewModel(),
             PageViewsEnum.Products => new ProductsViewModel(new ProductServices()),
             PageViewsEnum.Customers => new CustomersViewModel(new CustomerServices()),
-            PageViewsEnum.Orders => new OrdersViewModel(),
             PageViewsEnum.AddProduct => new AddProductViewModel(),
+            PageViewsEnum.Orders => new OrdersViewModel(),
+            PageViewsEnum.AddOrder => new AddOrderViewModel(),
             _ => throw new InvalidOperationException("Det fanns inte det du ville ha"),
         };
     }

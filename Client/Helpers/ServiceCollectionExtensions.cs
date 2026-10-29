@@ -22,9 +22,11 @@ public static class ServiceCollectionExtensions
         collection.AddTransient<HomeViewModel>();
         collection.AddTransient<ProductsViewModel>();
         collection.AddTransient<CustomersViewModel>();
-        collection.AddTransient<OrdersViewModel>();
         collection.AddTransient<IProductService, ProductServices>();
         collection.AddTransient<ICustomerService, CustomerServices>();
+        collection.AddTransient<OrdersViewModel>();
+        collection.AddTransient<AddOrderViewModel>();
+        collection.AddTransient<IOrderService, OrderServices>();
     }
 }
 
